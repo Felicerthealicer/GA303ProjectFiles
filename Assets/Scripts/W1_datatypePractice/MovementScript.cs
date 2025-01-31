@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovementScript : MonoBehaviour
+public class movementScript : MonoBehaviour
 {
     public Vector3 startingPosition;
 
