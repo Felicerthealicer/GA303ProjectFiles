@@ -21,7 +21,7 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
      
-        this.transform.position += moveDirection * speed *Time.deltaTime;
+        this.transform.position += moveDirection * speed * Time.deltaTime;
 
     }
 }
