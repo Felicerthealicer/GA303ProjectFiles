@@ -11,8 +11,10 @@ public class StartScript : MonoBehaviour
     public GameObject blueScreen;
 
     public Vector3 increaseValue;
+    public Vector3 decreaseValue;
 
     public float scaleIncrease;
+    public float scaleDecrease;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,7 +25,7 @@ public class StartScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CatButton();
     }
 
     public void CatButton()
@@ -32,26 +34,20 @@ public class StartScript : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.G))
         {
+            Debug.Log("Cliking G");
 
-            catYes.transform.localScale += Vector3.one * scaleIncrease * Time.deltaTime;
-
-            if (catYes.transform.localScale.x > 1f)
-
-            {
-                startButton.SetActive(false);
-
-                tiltingOllie.SetActive(true);
-
-            }
+            catYes.transform.localScale += increaseValue * scaleIncrease * Time.deltaTime;
 
         }
 
         if(Input.GetKeyDown(KeyCode.R))
         {
 
-            catNo.transform.localScale -= Vector3.one * scaleIncrease;
+            Debug.Log("Clicking R");
 
-            if (catNo.transform.localScale.x<1f)
+            catNo.transform.localScale -= decreaseValue * scaleIncrease;
+
+            if (catNo.transform.localScale.x<.5f)
             {
 
                 blueScreen.SetActive(true);
@@ -59,7 +55,7 @@ public class StartScript : MonoBehaviour
             }
         }
 
-        Debug.Log("Uhm");
+     
 
     }
 
