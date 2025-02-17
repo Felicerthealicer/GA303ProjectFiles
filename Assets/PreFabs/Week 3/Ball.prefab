@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 6643512344387329991}
   - component: {fileID: 1137772297760776122}
   - component: {fileID: 2614372379670606266}
-  - component: {fileID: -8999030729460432043}
-  - component: {fileID: 8105824515267761259}
+  - component: {fileID: 5450605427617730598}
   m_Layer: 0
-  m_Name: Cannonball
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 6.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2370527, y: 0.2370527, z: 0.2370527}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -138,7 +137,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8999030729460432043
+--- !u!114 &5450605427617730598
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,18 +146,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7645602562124010730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 964cdf899ec7d7e419a7d8fd9ae9bbe3, type: 3}
+  m_Script: {fileID: 11500000, guid: e024a8df7714c59479a8a32c2f806eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8105824515267761259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7645602562124010730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67034fb317ecdbb4c9ce52c4ebcdb1ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  moveRight: {x: 10, y: 0, z: 0}
+  moveBack: {x: 0, y: 0, z: 50}
+  moveLeft: {x: -50, y: 0, z: 0}
+  moveForward: {x: 0, y: 0, z: -50}
