@@ -19,6 +19,7 @@ public class DominoAndBall : MonoBehaviour
         if (Domino.gameObject.name == "MagentaToCyan")
         {
             this.gameObject.GetComponent<MeshRenderer>().material.color = Color.cyan;
+            this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 100f);
         }
     }
 }
