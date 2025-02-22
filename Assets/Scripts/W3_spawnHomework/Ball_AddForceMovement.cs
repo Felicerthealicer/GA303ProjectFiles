@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class Colllision : MonoBehaviour
+public class Ball_AddForceMovement : MonoBehaviour
 {
+
+    public Vector3 direction;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,20 +16,16 @@ public class Colllision : MonoBehaviour
     {
         
     }
+
     private void OnCollisionEnter(Collision Domino)
     {
-        Debug.Log(Domino.gameObject.tag);
 
         if (Domino.gameObject.tag == "MagentaDomino")
         {
-            this.gameObject.GetComponent<MeshRenderer>().material.color = Color.magenta;
+            Debug.Log("Collied");
+            this.gameObject.GetComponent<Rigidbody>().AddForce(direction * 10f);
         }
-        else if (Domino.gameObject.tag == "CyanDomino")
-        {
-            this.gameObject.GetComponent<MeshRenderer>().material.color = Color.cyan;
-        }
+        
+
     }
-
-    
-
 }
