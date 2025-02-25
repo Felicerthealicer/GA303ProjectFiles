@@ -7,6 +7,7 @@ public class BooScript : MonoBehaviour
     public Rigidbody rbody;
     public Vector3 moveDirection;
     public float speed;
+    public bool resetTheTimer = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,8 +30,6 @@ public class BooScript : MonoBehaviour
             BooGhost();
             disappearTimer = defaultTime;
         }*/
-
-        
 
     }
 
@@ -57,14 +56,21 @@ public class BooScript : MonoBehaviour
 
     public void BooTimer()
     {
-        float disappearTimer = Random.Range(5f, 10f);
-
-        disappearTimer -= Time.deltaTime;
-        Debug.Log(disappearTimer); //why is timer not reaching 0 ?? 
-
-        if (disappearTimer <= 0)
+        float disappearTimer = 5f;
+        Debug.Log("The timer is " + disappearTimer); 
+        
+        if (resetTheTimer == true)
         {
-            BooGhost();
+            
+            if (disappearTimer > 0) 
+            {
+                disappearTimer -= Time.deltaTime;
+            }
+            else if (disappearTimer <= 0)
+            {
+                BooGhost();
+                disappearTimer = 5f;
+            }
         }
     }
 
