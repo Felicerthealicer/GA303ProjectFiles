@@ -9,10 +9,12 @@ public class BooList : MonoBehaviour
     public List<BooScript> boos = new List<BooScript>();
     public GameObject booPreFab;
 
+    public int booCount;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int booCount = Random.Range(20, 30);
+        booCount = Random.Range(20, 30);
         for (int i = 0; i < booCount; i++)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-10.3f, 10.3f), 1.2f, Random.Range(-7f, 6.25f));
@@ -31,7 +33,7 @@ public class BooList : MonoBehaviour
         foreach (BooScript boo in boos)
         {
             boo.RandomizedMovement();
-            boo.BooTimer();
+            boo.BooDisappear();
         }
     }
 }

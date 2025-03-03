@@ -7,18 +7,26 @@ public class BooScript : MonoBehaviour
     public Rigidbody rbody;
     public Vector3 moveDirection;
     public float speed;
-    public bool resetTheTimer = true;
+
+    public MeshRenderer meshRenderer;
+
+    public bool hasTheGhostDisappeared = true;
+    public bool hasTheGhostReappeared = false;
+    float disappearTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
+        meshRenderer = GetComponent<MeshRenderer>();
+
+        disappearTimer = Random.Range(5f, 10f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Use thi for moving rigidbodies around that will care about colliders! 
+        //Use this for moving rigidbodies around that will care about colliders! 
         rbody.AddForce(moveDirection * speed * Time.deltaTime);
 
         // Don't do this for rigidbody moving around! 
@@ -51,27 +59,41 @@ public class BooScript : MonoBehaviour
 
     void BooGhost()
     {
-        this.gameObject.GetComponent<MeshRenderer>().material.color = new Color(221, 221, 221, Random.Range(0f, 135f)); 
+        // this.gameObject.GetComponent<MeshRenderer>().material.color = new Color(221, 221, 221, Random.Range(0f, 0.5f)); 
+        meshRenderer.enabled = false;
     }
 
-    public void BooTimer()
+    public void BooDisappear()
     {
-        float disappearTimer = 5f;
-        Debug.Log("The timer is " + disappearTimer); 
-        
-        if (resetTheTimer == true)
+
+        if (hasTheGhostDisappeared == true)
         {
-            
-            if (disappearTimer > 0) 
+            if (disappearTimer > 0)
             {
                 disappearTimer -= Time.deltaTime;
             }
             else if (disappearTimer <= 0)
             {
-                BooGhost();
-                disappearTimer = 5f;
+                meshRenderer.enabled = false;
+                disappearTimer = Random.Range(5f, 10f);
+                hasTheGhostDisappeared = false;
+                hasTheGhostReappeared = true;
+            }
+        }
+
+        if (hasTheGhostReappeared == true)
+        {
+            if (disappearTimer > 0)
+            {
+                disappearTimer -= Time.deltaTime;
+            }
+            else if (disappearTimer <= 0)
+            {
+                meshRenderer.enabled = true;
+                disappearTimer = Random.Range(5f, 10f);
+                hasTheGhostReappeared = false;
+                hasTheGhostDisappeared = true;
             }
         }
     }
-
 }
