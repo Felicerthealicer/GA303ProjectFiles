@@ -18,7 +18,7 @@ public class RangedEnemy : Enemy
 
     protected override void Update()
     {
-        this.transform.LookAt(player.transform.position);
+        // this.transform.LookAt(player.transform.position);
 
         base.Update();
     }

@@ -17,6 +17,7 @@ TagManager:
   - Cannonball
   - Key
   - Door
+  - Vision
   layers:
   - Default
   - TransparentFX

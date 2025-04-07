@@ -32,4 +32,12 @@ public class Player : MonoBehaviour
 
     }
 
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Vision")
+        {
+            other.GetComponentInParent<Enemy>().SeePLayer();
+        }
+    }
+
 }
