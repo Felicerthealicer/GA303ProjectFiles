@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Assertions.Must;
 
 public class Enemy : MonoBehaviour
 {
@@ -71,7 +72,7 @@ public class Enemy : MonoBehaviour
 
                 if (IsPlayerInLoS() == true) //if the player is within line of sight...
                 {
-                    navAgent.isStopped = true; //stop the nav movement 
+                    // navAgent.isStopped = true; //stop the nav movement 
                     this.transform.LookAt(player.transform.position); //keep looking at player
 
                     attackTimer += Time.deltaTime; //increase the attack timer
@@ -153,17 +154,10 @@ public class Enemy : MonoBehaviour
 
     public void SeePLayer()
     {
-        RaycastHit hit;
-
-        Vector3 dir = player.transform.position - this.transform.position;
-        dir.Normalize();
-
-        if(Physics.Raycast(this.transform.position, dir, out hit))
+        if(IsPlayerInLoS() == true)
         {
-            if(hit.collider.tag == "Player")
-            {
-                hasSeenPlayer = true;
-            }
+            hasSeenPlayer = true;
+            navAgent.stoppingDistance = attackRange;
         }
     }
 }
