@@ -18,6 +18,9 @@ TagManager:
   - Key
   - Door
   - Vision
+  - Horizontal
+  - Vertical
+  - Luigi
   layers:
   - Default
   - TransparentFX

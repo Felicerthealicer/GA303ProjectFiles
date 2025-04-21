@@ -25,33 +25,6 @@ public class BooList : MonoBehaviour
 
         boos = FindObjectsByType<BooScript>(FindObjectsSortMode.None).ToList();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     // Update is called once per frame
